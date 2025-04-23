@@ -1,0 +1,9 @@
+wikipedia
+langchain
+langchain-community
+langchain-openai
+langchain-anthropic
+langchain-embeddings
+python-dotenv
+pydantic
+# TO DO - KEYWORD, TITLE, DATE AND TIME DEADLINE,DEFAULT PROGROESS UNDONE : OUTPUT IN JSON

@@ -1,0 +1,66 @@
+[
+  {
+    "email_uid": 19483,
+    "subject": "Introduction to Database Systems : Problem solving Session Reminder\r\n !!",
+    "from": [
+      [
+        "onlinecourses@nptel.iitm.ac.in",
+        "onlinecourses@nptel.iitm.ac.in"
+      ]
+    ],
+    "meeting_info": {
+      "date": "2025-04-04",
+      "time": "18:00",
+      "link": "https://meet.google.com/mpm-mzfv-ndt",
+      "description": "Live interactive session with a Course team member to explain sample problems and assist with weekly assignments for NPTEL learners."
+    }
+  },
+  {
+    "email_uid": 19937,
+    "subject": "Happening now: akultyagi2304@gmail.com is inviting you to a video call",
+    "from": [
+      [
+        "akultyagi2304@gmail.com (via Google Meet)",
+        "meetings-noreply@google.com"
+      ]
+    ],
+    "meeting_info": {
+      "date": "2025-04-23",
+      "time": "17:09",
+      "link": "https://meet.google.com/jvc-ytxv-rmn",
+      "description": "Video call invitation from akultyagi2304@gmail.com via Google Meet, happening now."
+    }
+  },
+  {
+    "email_uid": 19938,
+    "subject": "Happening now: akultyagi2304@gmail.com is inviting you to a video call",
+    "from": [
+      [
+        "akultyagi2304@gmail.com (via Google Meet)",
+        "meetings-noreply@google.com"
+      ]
+    ],
+    "meeting_info": {
+      "date": "2025-04-23",
+      "time": "17:09",
+      "link": "https://meet.google.com/yry-dbug-nom",
+      "description": "Video call invitation from akultyagi2304@gmail.com via Google Meet, happening now."
+    }
+  },
+  {
+    "email_uid": 19940,
+    "subject": "Happening now: akultyagi2304@gmail.com is inviting you to a video call",
+    "from": [
+      [
+        "akultyagi2304@gmail.com (via Google Meet)",
+        "meetings-noreply@google.com"
+      ]
+    ],
+    "meeting_info": {
+      "date": "2025-04-23",
+      "time": "17:09",
+      "link": "https://meet.google.com/cje-bach-jxz",
+      "description": "Video call invitation from akultyagi2304@gmail.com via Google Meet, happening now."
+    }
+  }
+]
