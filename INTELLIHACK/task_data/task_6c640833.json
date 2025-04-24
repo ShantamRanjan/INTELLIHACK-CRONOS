@@ -1,10 +1,10 @@
 {
-  "id": "7300e87d",
+  "id": "6c640833",
   "description": "🤖 New Table View, Task Automation, and Multi-Feed YouTube & RSS Blogs",
   "status": "pending",
   "progress": 0,
-  "created_at": "2025-04-24T08:01:01.672672",
-  "updated_at": "2025-04-24T08:01:01.672672",
+  "created_at": "2025-04-24T12:46:07.386219",
+  "updated_at": "2025-04-24T12:46:07.386219",
   "deadline": null,
   "priority": "medium",
   "source": "email",
@@ -13,7 +13,7 @@
   "notes": [
     {
       "text": "Task created from email: 🤖 New Table View, Task Automation, and Multi-Feed YouTube & RSS Blogs",
-      "timestamp": "2025-04-24T08:01:01.672672"
+      "timestamp": "2025-04-24T12:46:07.386219"
     }
   ]
 }
