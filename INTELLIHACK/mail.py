@@ -160,15 +160,19 @@ class EmailInboxProcessor:
             raise ValueError("Email credentials not fully set in environment variables")
         self.agent = PerplexityEmailAgent()
 
-    def fetch_unread_emails(self, folder="INBOX", limit=50):  # Increase limit for more recent emails
+    def fetch_emails(self, folder="INBOX", limit=50, days_back=7):
         with IMAPClient(self.host) as server:
             server.login(self.user, self.password)
             server.select_folder(folder)
-            # Search for unseen emails
-            messages = server.search(['UNSEEN'])
-            print(f"Found {len(messages)} unread emails.")
-            # Get most recent emails
-            messages = messages[-limit:] #get last limit
+            
+            # Search for all emails from the last N days (instead of just unread ones)
+            since_date = (datetime.now() - timedelta(days=days_back)).strftime("%d-%b-%Y")
+            messages = server.search(['SINCE', since_date])
+            
+            print(f"Found {len(messages)} emails from the last {days_back} days.")
+            
+            # Get most recent emails up to the limit
+            messages = messages[-limit:] if len(messages) > limit else messages
 
             emails = []
             for uid in messages:
@@ -206,8 +210,8 @@ class EmailInboxProcessor:
                 })
             return emails
 
-    def process_emails(self):
-        emails = self.fetch_unread_emails()
+    def process_emails(self, days_back=7):
+        emails = self.fetch_emails(days_back=days_back)
         results = []
         for email in emails:
             try:
@@ -235,7 +239,7 @@ class EmailInboxProcessor:
 
 if __name__ == "__main__":
     processor = EmailInboxProcessor()
-    extracted_meetings = processor.process_emails()
+    extracted_meetings = processor.process_emails(days_back=7)  # Process emails from the last 7 days
     
     # Create output directory if it doesn't exist
     output_dir = "meeting_data"
