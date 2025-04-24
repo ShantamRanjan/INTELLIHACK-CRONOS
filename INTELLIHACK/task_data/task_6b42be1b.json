@@ -1,0 +1,19 @@
+{
+  "id": "6b42be1b",
+  "description": "NSCC SRM Recruitments - Task Round Details and Submission",
+  "status": "pending",
+  "progress": 0,
+  "created_at": "2025-04-24T08:00:59.507137",
+  "updated_at": "2025-04-24T08:00:59.507137",
+  "deadline": null,
+  "priority": "medium",
+  "source": "email",
+  "sender": "Arsh Bhatia <noreply@luma-mail.com>",
+  "email_id": "10419",
+  "notes": [
+    {
+      "text": "Task created from email: NSCC SRM Recruitments - Task Round Details and Submission",
+      "timestamp": "2025-04-24T08:00:59.507137"
+    }
+  ]
+}

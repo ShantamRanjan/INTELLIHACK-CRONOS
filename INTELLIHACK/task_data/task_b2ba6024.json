@@ -1,0 +1,19 @@
+{
+  "id": "b2ba6024",
+  "description": "All you have to do is ask. And Genie will do your task.",
+  "status": "pending",
+  "progress": 0,
+  "created_at": "2025-04-24T08:00:58.303536",
+  "updated_at": "2025-04-24T08:00:58.303536",
+  "deadline": null,
+  "priority": "medium",
+  "source": "email",
+  "sender": "Swiggy Genie <alerts@info.swiggy.in>",
+  "email_id": "2230",
+  "notes": [
+    {
+      "text": "Task created from email: All you have to do is ask. And Genie will do your task.",
+      "timestamp": "2025-04-24T08:00:58.303536"
+    }
+  ]
+}

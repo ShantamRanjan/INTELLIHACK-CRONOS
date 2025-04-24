@@ -3,5 +3,35 @@
     "timestamp": "2025-04-23T21:07:23.344886",
     "query": "who is the richest person in india ?",
     "response": "The richest person in India as of April 2025 is Mukesh Ambani, the chairman of Reliance Industries. He tops both national and regional rankings, maintaining his position as India's wealthiest individual and also ranking as Asia's richest, with a fortune estimated at $92.5 billion. Globally, he is ranked 18th among the world's billionaires[5][3][1]. Ambani's wealth is primarily derived from his leadership of Reliance Industries, a conglomerate with interests spanning petrochemicals, oil and gas, retail, and telecom sectors[1][3]."
+  },
+  {
+    "timestamp": "2025-04-24T07:58:10.532303",
+    "query": "list tasks",
+    "response": "No tasks found"
+  },
+  {
+    "timestamp": "2025-04-24T07:58:29.826590",
+    "query": "fetch tasks from email",
+    "response": "Email configuration not set. Please set EMAIL_USER and EMAIL_PASSWORD in .env file."
+  },
+  {
+    "timestamp": "2025-04-24T08:00:44.248518",
+    "query": "list tasks",
+    "response": "No tasks found"
+  },
+  {
+    "timestamp": "2025-04-24T08:01:02.452019",
+    "query": "fetch tasks from email",
+    "response": "Successfully imported 6 tasks from email"
+  },
+  {
+    "timestamp": "2025-04-24T08:01:24.354286",
+    "query": "list tasks",
+    "response": "Tasks:\n- [b2ba6024] 🟡 pending (0%): All you have to do is ask. And Genie will do your \n- [a5d5add1] 🟡 pending (0%): Task Submission Form(Bharat Intern)📝\n- [6b42be1b] 🟡 pending (0%): NSCC SRM Recruitments - Task Round Details and Sub\n- [85321a05] 🟡 pending (0%): Drive Link Access Settings for Task Submission\n- [8bda3005] 🟡 pending (0%): Mohit Upadhyay reacted to a post: Third Task of Oa\n- [7300e87d] 🟡 pending (0%): 🤖 New Table View, Task Automation, and Multi-Feed \n"
+  },
+  {
+    "timestamp": "2025-04-24T08:01:55.298127",
+    "query": "who is current prime minister of india",
+    "response": "The current Prime Minister of India is Narendra Modi. He was sworn in for his third consecutive term on June 9, 2024, following another victory in the 2024 Parliamentary elections. Modi has served as Prime Minister since May 26, 2014, and is recognized as the fourth longest-serving Prime Minister in India's history[1][3][4]."
   }
 ]

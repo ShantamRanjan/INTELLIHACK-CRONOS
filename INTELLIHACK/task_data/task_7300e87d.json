@@ -1,0 +1,19 @@
+{
+  "id": "7300e87d",
+  "description": "🤖 New Table View, Task Automation, and Multi-Feed YouTube & RSS Blogs",
+  "status": "pending",
+  "progress": 0,
+  "created_at": "2025-04-24T08:01:01.672672",
+  "updated_at": "2025-04-24T08:01:01.672672",
+  "deadline": null,
+  "priority": "medium",
+  "source": "email",
+  "sender": "John at Taskade <updates@taskade.com>",
+  "email_id": "15004",
+  "notes": [
+    {
+      "text": "Task created from email: 🤖 New Table View, Task Automation, and Multi-Feed YouTube & RSS Blogs",
+      "timestamp": "2025-04-24T08:01:01.672672"
+    }
+  ]
+}

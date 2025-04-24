@@ -1,0 +1,19 @@
+{
+  "id": "85321a05",
+  "description": "Drive Link Access Settings for Task Submission",
+  "status": "pending",
+  "progress": 0,
+  "created_at": "2025-04-24T08:01:00.132539",
+  "updated_at": "2025-04-24T08:01:00.132539",
+  "deadline": null,
+  "priority": "medium",
+  "source": "email",
+  "sender": "NSCC SRM <noreply@luma-mail.com>",
+  "email_id": "10591",
+  "notes": [
+    {
+      "text": "Task created from email: Drive Link Access Settings for Task Submission",
+      "timestamp": "2025-04-24T08:01:00.132539"
+    }
+  ]
+}
