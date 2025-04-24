@@ -10,6 +10,7 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
+import pytz
 
 # If modifying these scopes, delete the file token.json.
 SCOPES = ['https://www.googleapis.com/auth/calendar.events']
@@ -32,6 +33,7 @@ class PerplexityEmailAgent:
             "3. If any of the date, time, or link information is missing, extract the date and time for the call to happen from today forward.  The date for the call is likely to be happening in a short amount of time"
             "4. If no meeting is found return an empty JSON `{}`"
             "5. Focus on emails that contain google meet or zoom link"
+            "6. Assume all times are in Indian Standard Time (IST)"
             "Ensure your output is a valid JSON object."
         )
 
@@ -112,13 +114,21 @@ def add_meeting_to_calendar(meeting_info):
 
         try:
             # Combine date and time
-            combined_dt_str = f"{date_str}T{time_str}:00"  # Assuming UTC, adjust as needed
-
-            # Attempt to parse the combined datetime string
-            event_start_time = datetime.strptime(combined_dt_str, '%Y-%m-%dT%H:%M:%S')
-            # Add a timezone offset (IST is UTC+5:30)
-            event_start_time = event_start_time - timedelta(hours=5, minutes=30)
-            event_start_time = event_start_time.isoformat() + 'Z'
+            combined_dt_str = f"{date_str}T{time_str}:00"  # Format: YYYY-MM-DDTHH:MM:SS
+            
+            # Create datetime object and set it to IST timezone
+            ist = pytz.timezone('Asia/Kolkata')
+            event_datetime = datetime.strptime(combined_dt_str, '%Y-%m-%dT%H:%M:%S')
+            event_datetime_ist = ist.localize(event_datetime)
+            
+            # Convert to UTC for Google Calendar
+            event_datetime_utc = event_datetime_ist.astimezone(pytz.UTC)
+            
+            # Format for Google Calendar API
+            start_time_utc = event_datetime_utc.isoformat()
+            
+            # For the end time, add 1 hour by default
+            end_time_utc = (event_datetime_utc + timedelta(hours=1)).isoformat()
 
         except ValueError as e:
             print(f"Error parsing date or time: {e}")
@@ -127,13 +137,13 @@ def add_meeting_to_calendar(meeting_info):
         # Create the event
         event = {
             'summary': 'Scheduled Meeting',
-            'description': meeting_info.get('description', 'Meeting Link: ' + str(meeting_info.get('link'))),
+            'description': meeting_info.get('description', 'Meeting Link: ' + str(meeting_info.get('link', ''))),
             'start': {
-                'dateTime': event_start_time,
-                'timeZone': 'UTC',  # Use UTC as a default, adjust if known
+                'dateTime': start_time_utc,
+                'timeZone': 'UTC',
             },
             'end': {
-                'dateTime': (datetime.strptime(combined_dt_str, '%Y-%m-%dT%H:%M:%S')  - timedelta(hours=5, minutes=30)).isoformat() + 'Z', # Same time as start for now - could add a duration
+                'dateTime': end_time_utc,
                 'timeZone': 'UTC',
             },
             'reminders': {
@@ -144,7 +154,27 @@ def add_meeting_to_calendar(meeting_info):
             },
         }
 
-        event = service.events().insert(calendarId='primary', body=event).execute()
+        # Add meeting link to the event
+        if meeting_info.get('link'):
+            if 'meet.google.com' in meeting_info['link']:
+                event['conferenceData'] = {
+                    'createRequest': {
+                        'requestId': f"meeting-{datetime.now().timestamp()}",
+                        'conferenceSolutionKey': {
+                            'type': 'hangoutsMeet'
+                        }
+                    }
+                }
+            else:
+                # For other links (like Zoom), add to location
+                event['location'] = meeting_info['link']
+
+        event = service.events().insert(
+            calendarId='primary', 
+            body=event,
+            conferenceDataVersion=1 if 'conferenceData' in event else 0
+        ).execute()
+        
         print(f"Event created: {event.get('htmlLink')}")
 
     except Exception as e:
@@ -165,7 +195,7 @@ class EmailInboxProcessor:
             server.login(self.user, self.password)
             server.select_folder(folder)
             
-            # Search for all emails from the last N days (instead of just unread ones)
+            # Search for all emails from the last N days
             since_date = (datetime.now() - timedelta(days=days_back)).strftime("%d-%b-%Y")
             messages = server.search(['SINCE', since_date])
             
